@@ -108,8 +108,8 @@ function stripUserBreakout(text) {
 
 // 🎨 THINKING-CAPABLE MODELS (for reasoning mode)
 const THINKING_MODELS = [
-  'deepseek-ai/deepseek-v3.2',
-  'deepseek-ai/deepseek-v3.1',
+  'deepseek-ai/deepseek-v4-pro',
+  'deepseek-ai/deepseek-v4-flash',
   'deepseek-ai/deepseek-v3.1-terminus',
   'qwen/qwen3-next-80b-a3b-thinking',
   'nvidia/llama-3.1-nemotron-ultra-253b-v1',
@@ -145,7 +145,7 @@ app.get('/', (req, res) => {
       chat: '/v1/chat/completions'
     },
     featured_models: {
-      best_quality: 'gpt-4 → deepseek-v3.2 (685B params)',
+      best_quality: 'gpt-4 → deepseek-v4-pro',
       balanced: 'claude-sonnet → llama-3.3-nemotron-super (49B)',
       fastest: 'gpt-3.5-turbo → llama-3.1-nemotron-nano (8B)'
     }
@@ -217,9 +217,9 @@ app.post('/v1/chat/completions', async (req, res) => {
         
         // Match patterns for best model selection
         if (modelLower.includes('gpt-4') || modelLower.includes('opus')) {
-          nimModel = 'deepseek-ai/deepseek-v3.2'; // Best quality
+          nimModel = 'deepseek-ai/deepseek-v4-pro'; // Best quality
         } else if (modelLower.includes('deepseek')) {
-          nimModel = 'deepseek-ai/deepseek-v3.1';
+          nimModel = 'deepseek-ai/deepseek-v4-flash';
         } else if (modelLower.includes('claude-sonnet') || modelLower.includes('70b')) {
           nimModel = 'nvidia/llama-3.3-nemotron-super-49b-v1.5'; // Balanced
         } else if (modelLower.includes('3.5') || modelLower.includes('haiku') || modelLower.includes('fast')) {
