@@ -25,8 +25,7 @@ const ENABLE_THINKING_MODE = process.env.ENABLE_THINKING_MODE === 'true' || fals
 // Best models from NVIDIA NIM API (January 2025)
 const MODEL_MAPPING = {
   // Premium Reasoning Models (Best for Roleplay & Complex Conversations)
-  'gpt-4': 'deepseek-ai/deepseek-v4-pro',                                    // State-of-the-art 685B reasoning LLM
-  'gpt-4-turbo': 'deepseek-ai/deepseek-v4-flash',                              // Hybrid thinking mode, 128K context
+  'gpt-4': 'deepseek-ai/deepseek-v4-pro',                                    // State-of-the-art 685B reasoning LLM                              // Hybrid thinking mode, 128K context
   'gpt-4o': 'deepseek-ai/deepseek-v3.1-terminus',                          // Improved stability & agent behavior
   'claude-opus': 'nvidia/llama-3.1-nemotron-ultra-253b-v1',                // Highest accuracy, complex reasoning
   'claude-sonnet': 'nvidia/llama-3.3-nemotron-super-49b-v1.5',             // Great accuracy-efficiency balance
@@ -42,7 +41,7 @@ const MODEL_MAPPING = {
   
   // Alternative Premium Options
   'gpt-4-reasoning': 'moonshotai/kimi-k2-instruct-1113',                   // Long context, enhanced reasoning
-  'deepseek': 'deepseek-ai/deepseek-v3.1',                                 // Direct DeepSeek access
+  'deepseek': 'deepseek-ai/deepseek-v4-flash',                                 // Direct DeepSeek access
   
   // Fallback Models (Meta Llama)
   'llama-70b': 'meta/llama-3.1-70b-instruct',
