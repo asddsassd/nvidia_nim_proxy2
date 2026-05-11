@@ -25,8 +25,8 @@ const ENABLE_THINKING_MODE = process.env.ENABLE_THINKING_MODE === 'true' || fals
 // Best models from NVIDIA NIM API (January 2025)
 const MODEL_MAPPING = {
   // Premium Reasoning Models (Best for Roleplay & Complex Conversations)
-  'gpt-4': 'deepseek-ai/deepseek-v3.2',                                    // State-of-the-art 685B reasoning LLM
-  'gpt-4-turbo': 'deepseek-ai/deepseek-v3.1',                              // Hybrid thinking mode, 128K context
+  'gpt-4': 'deepseek-ai/deepseek-v4-pro',                                    // State-of-the-art 685B reasoning LLM
+  'gpt-4-turbo': 'deepseek-ai/deepseek-v4-flash',                              // Hybrid thinking mode, 128K context
   'gpt-4o': 'deepseek-ai/deepseek-v3.1-terminus',                          // Improved stability & agent behavior
   'claude-opus': 'nvidia/llama-3.1-nemotron-ultra-253b-v1',                // Highest accuracy, complex reasoning
   'claude-sonnet': 'nvidia/llama-3.3-nemotron-super-49b-v1.5',             // Great accuracy-efficiency balance
@@ -108,8 +108,8 @@ function stripUserBreakout(text) {
 
 // 🎨 THINKING-CAPABLE MODELS (for reasoning mode)
 const THINKING_MODELS = [
-  'deepseek-ai/deepseek-v3.2',
-  'deepseek-ai/deepseek-v3.1',
+  'deepseek-ai/deepseek-v4-pro',
+  'deepseek-ai/deepseek-v4-flash',
   'deepseek-ai/deepseek-v3.1-terminus',
   'qwen/qwen3-next-80b-a3b-thinking',
   'nvidia/llama-3.1-nemotron-ultra-253b-v1',
@@ -145,9 +145,9 @@ app.get('/', (req, res) => {
       chat: '/v1/chat/completions'
     },
     featured_models: {
-      best_quality: 'gpt-4 → deepseek-v3.2 (685B params)',
+      best_quality: 'gpt-4 → deepseek-v4-pro',
       balanced: 'claude-sonnet → llama-3.3-nemotron-super (49B)',
-      fastest: 'gpt-3.5-turbo → llama-3.1-nemotron-nano (8B)'
+      fastest: 'gpt-3.5-turbo → deepseek-v4-flash'
     }
   });
 });
@@ -217,9 +217,9 @@ app.post('/v1/chat/completions', async (req, res) => {
         
         // Match patterns for best model selection
         if (modelLower.includes('gpt-4') || modelLower.includes('opus')) {
-          nimModel = 'deepseek-ai/deepseek-v3.2'; // Best quality
+          nimModel = 'deepseek-ai/deepseek-v4-pro'; // Best quality
         } else if (modelLower.includes('deepseek')) {
-          nimModel = 'deepseek-ai/deepseek-v3.1';
+          nimModel = 'deepseek-ai/deepseek-v4-flash';
         } else if (modelLower.includes('claude-sonnet') || modelLower.includes('70b')) {
           nimModel = 'nvidia/llama-3.3-nemotron-super-49b-v1.5'; // Balanced
         } else if (modelLower.includes('3.5') || modelLower.includes('haiku') || modelLower.includes('fast')) {
@@ -471,7 +471,7 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`   • API key: ${NIM_API_KEY ? '✅ Configured' : '❌ Missing'}`);
   console.log('');
   console.log('🎯 Featured Models:');
-  console.log('   • Best Quality: gpt-4 → DeepSeek V3.2 (685B)');
+  console.log('   • Best Quality: gpt-4 → DeepSeek V4-pro');
   console.log('   • Balanced: claude-sonnet → Llama Nemotron Super (49B)');
   console.log('   • Fastest: gpt-3.5-turbo → Llama Nemotron Nano (8B)');
   console.log('═══════════════════════════════════════════════════════');
