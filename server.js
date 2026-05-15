@@ -31,7 +31,7 @@ const MODEL_MAPPING = {
   'claude-sonnet': 'nvidia/llama-3.3-nemotron-super-49b-v1.5',             // Great accuracy-efficiency balance
   
   // Fast & Efficient Models (Balanced Performance)
-  'gpt-3.5-turbo': 'nvidia/llama-3.1-nemotron-nano-8b-v1',                 // Fast, efficient, good quality
+  'gpt-3.5-turbo': 'mistralai/mistral-small-4-119b-2603',                 // Fast, efficient, good quality
   'gpt-3.5-turbo-16k': 'nvidia/nvidia-nemotron-nano-9b-v2',                // Hybrid Mamba-Transformer, 128K context
   'claude-haiku': 'nvidia/nemotron-3-nano-30b-a3b',                        // Best-in-class throughput, 1M tokens
   
@@ -146,7 +146,7 @@ app.get('/', (req, res) => {
     featured_models: {
       best_quality: 'gpt-4 → deepseek-v4-pro',
       balanced: 'claude-sonnet → llama-3.3-nemotron-super (49B)',
-      fastest: 'gpt-3.5-turbo → llama-3.1-nemotron-nano (8B)'
+      fastest: 'gpt-3.5-turbo → mistralai/mistral-small-4-119b-2603'
     }
   });
 });
