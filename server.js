@@ -27,7 +27,7 @@ const MODEL_MAPPING = {
   // Premium Reasoning Models (Best for Roleplay & Complex Conversations)
   'gpt-4': 'deepseek-ai/deepseek-v4-pro',                                    // State-of-the-art 685B reasoning LLM                              // Hybrid thinking mode, 128K context
   'gpt-4o': 'deepseek-ai/deepseek-v3.1-terminus',                          // Improved stability & agent behavior
-  'claude-opus': 'nvidia/llama-3.1-nemotron-ultra-253b-v1',                // Highest accuracy, complex reasoning
+  'claude-opus': 'qwen/qwen3.5-122b-a10b',                // Highest accuracy, complex reasoning
   'claude-sonnet': 'nvidia/llama-3.3-nemotron-super-49b-v1.5',             // Great accuracy-efficiency balance
   
   // Fast & Efficient Models (Balanced Performance)
@@ -220,7 +220,7 @@ app.post('/v1/chat/completions', async (req, res) => {
         } else if (modelLower.includes('deepseek')) {
           nimModel = 'deepseek-ai/deepseek-v4-flash';
         } else if (modelLower.includes('claude-sonnet') || modelLower.includes('70b')) {
-          nimModel = 'nvidia/llama-3.3-nemotron-super-49b-v1.5'; // Balanced
+          nimModel = 'nqwen/qwen3.5-122b-a10b'; // Balanced
         } else if (modelLower.includes('3.5') || modelLower.includes('haiku') || modelLower.includes('fast')) {
           nimModel = 'nvidia/llama-3.1-nemotron-nano-8b-v1'; // Fast
         } else if (modelLower.includes('gemini') || modelLower.includes('qwen')) {
