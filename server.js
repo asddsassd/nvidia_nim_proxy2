@@ -32,7 +32,7 @@ const MODEL_MAPPING = {
   
   // Fast & Efficient Models (Balanced Performance)
   'gpt-3.5-turbo': 'mistralai/mistral-small-4-119b-2603',                 // Fast, efficient, good quality
-  'gpt-3.5-turbo-16k': 'nvidia/nvidia-nemotron-nano-9b-v2',                // Hybrid Mamba-Transformer, 128K context
+  'gpt-3.5-turbo-16k': 'moonshotai/kimi-k2.6',                // Hybrid Mamba-Transformer, 128K context
   'claude-haiku': 'nvidia/nemotron-3-nano-30b-a3b',                        // Best-in-class throughput, 1M tokens
   
   // Specialized Models
