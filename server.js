@@ -28,7 +28,7 @@ const MODEL_MAPPING = {
   'gpt-4': 'deepseek-ai/deepseek-v4-pro',                                    // State-of-the-art 685B reasoning LLM                              // Hybrid thinking mode, 128K context
   'gpt-4o': 'deepseek-ai/deepseek-v3.1-terminus',                          // Improved stability & agent behavior
   'claude-opus': 'nvidia/nemotron-3-super-120b-a12b',                // Highest accuracy, complex reasoning
-  'claude-sonnet': 'stepfun-ai/step-3.5-flash',             // Great accuracy-efficiency balance
+  'claude-sonnet': 'stepfun-ai/step-3.7-flash',             // Great accuracy-efficiency balance
   
   // Fast & Efficient Models (Balanced Performance)
   'gpt-3.5-turbo': 'mistralai/mistral-small-4-119b-2603',                 // Fast, efficient, good quality
@@ -145,7 +145,7 @@ app.get('/', (req, res) => {
     },
     featured_models: {
       best_quality: 'gpt-4 → deepseek-v4-pro',
-      balanced: 'claude-sonnet → stepfun-ai/step-3.5-flash',
+      balanced: 'claude-sonnet → stepfun-ai/step-3.7-flash',
       fastest: 'gpt-3.5-turbo → mistralai/mistral-small-4-119b-2603'
     }
   });
@@ -220,7 +220,7 @@ app.post('/v1/chat/completions', async (req, res) => {
         } else if (modelLower.includes('deepseek')) {
           nimModel = 'deepseek-ai/deepseek-v4-flash';
         } else if (modelLower.includes('claude-sonnet') || modelLower.includes('70b')) {
-          nimModel = 'stepfun-ai/step-3.5-flash'; // Balanced
+          nimModel = 'stepfun-ai/step-3.7-flash'; // Balanced
         } else if (modelLower.includes('3.5') || modelLower.includes('haiku') || modelLower.includes('fast')) {
           nimModel = 'nvidia/llama-3.1-nemotron-nano-8b-v1'; // Fast
         } else if (modelLower.includes('gemini') || modelLower.includes('qwen')) {
